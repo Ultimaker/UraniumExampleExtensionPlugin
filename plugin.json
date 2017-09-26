@@ -1,0 +1,8 @@
+{
+    "name": "Example Extension",
+    "author": "Ultimaker",
+    "version": "1.0",
+    "api": 4,
+    "description": "Example extension to instruct people on how to create Uranium extensions.",
+    "catalog": "uranium"
+}
