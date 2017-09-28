@@ -1,9 +1,14 @@
 # Copyright (c) 2017 Ultimaker B.V.
 # This example is released under the terms of the AGPLv3 or higher.
 
-from UM.Application import Application #To listen to the event of creating the main window.
+import os.path
+from PyQt5.QtCore import QUrl #To find the QML for the dialogue window.
+from PyQt5.QtQml import QQmlComponent, QQmlContext #To create the dialogue window.
+
+from UM.Application import Application #To listen to the event of creating the main window, and get the QML engine.
 from UM.Extension import Extension #The PluginObject we're going to extend.
 from UM.Logger import Logger #Adding messages to the log.
+from UM.PluginRegistry import PluginRegistry #Getting the location of Hello.qml.
 
 class ExampleExtension(Extension): #Extension inherits from PluginObject, and provides some useful helper functions for adding an item to the application menu.
     ##  Creates an instance of this extension. This is basically the starting
@@ -27,13 +32,29 @@ class ExampleExtension(Extension): #Extension inherits from PluginObject, and pr
         #We'll add one item that says hello to the user.
         self.addMenuItem("Say hello", self.sayHello) #When the user clicks the menu item, the sayHello function is called.
 
+        #Lazy-load the window. Create it when we first want to say hello.
+        self.hello_window = None
 
         ## Reacting to an event. ##
         Application.getInstance().mainWindowChanged.connect(self.logMessage) #When the main window is created, log a message.
 
     ##  Creates a small dialogue window that says hello to the user.
     def sayHello(self):
-        pass
+        if not self.hello_window: #Don't create more than one.
+            self.hello_window = self._createDialogue()
+        self.hello_window.show()
 
+
+    ##  Adds a message to the log, as an example of how to listen to events.
     def logMessage(self):
         Logger.log("i", "This is an example log message.")
+
+    ##  Creates a modal dialogue.
+    def _createDialogue(self):
+        #Create a QML component from the Hello.qml file.
+        qml_file = QUrl.fromLocalFile(os.path.join(PluginRegistry.getInstance().getPluginPath(self.getPluginId()), "Hello.qml"))
+        component = QQmlComponent(Application.getInstance()._engine, qml_file)
+
+        qml_context = QQmlContext(Application.getInstance()._engine.rootContext()) #List the QML component as subcomponent of the main window.
+
+        return component.create(qml_context)
