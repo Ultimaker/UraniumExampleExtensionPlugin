@@ -18,6 +18,6 @@ To package your plug-in, use the packaging script in Uranium: https://github.com
 
 Try the following command:
 
-    python3 /path/to/Uranium/create_plugin.py plugin_location /path/to/UraniumExampleExtensionPlugin
+    python3 /path/to/Uranium/create_plugin.py /path/to/UraniumExampleExtensionPlugin
 
 That should produce a .plugin file that can be added to any application based on Uranium.
