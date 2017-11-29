@@ -1,7 +1,7 @@
 Example Extension
 =================
 
-This is an example extension plug-in for Uranium.
+This is an example extension plug-in for Uranium. Uranium is the underlying framework used in Ultimaker Cura and NinjaKittens.
 
 The extension type plug-in is a "generic" type of plug-in that just gets some object constructed upon loading the plug-in for the first time. Using the initialisation of that class as starting point for your code, you can access all of the application.
 
@@ -18,6 +18,6 @@ To package your plug-in, use the packaging script in Uranium: https://github.com
 
 Try the following command:
 
-    python3 /path/to/Uranium/create_plugin.py plugin_location /path/to/UraniumExampleExtensionPlugin
+    python3 /path/to/Uranium/create_plugin.py /path/to/UraniumExampleExtensionPlugin
 
 That should produce a .plugin file that can be added to any application based on Uranium.
