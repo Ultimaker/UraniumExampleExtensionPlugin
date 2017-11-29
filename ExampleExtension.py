@@ -52,9 +52,7 @@ class ExampleExtension(Extension): #Extension inherits from PluginObject, and pr
     ##  Creates a modal dialogue.
     def _createDialogue(self):
         #Create a QML component from the Hello.qml file.
-        qml_file = QUrl.fromLocalFile(os.path.join(PluginRegistry.getInstance().getPluginPath(self.getPluginId()), "Hello.qml"))
-        component = QQmlComponent(Application.getInstance()._engine, qml_file)
+        qml_file_path = os.path.join(PluginRegistry.getInstance().getPluginPath(self.getPluginId()), "Hello.qml")
+        component = Application.getInstance().createQmlComponent(qml_file_path)
 
-        qml_context = QQmlContext(Application.getInstance()._engine.rootContext()) #List the QML component as subcomponent of the main window.
-
-        return component.create(qml_context)
+        return component
