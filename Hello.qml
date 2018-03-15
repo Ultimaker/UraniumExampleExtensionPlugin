@@ -13,7 +13,7 @@ UM.Dialog //Creates a modal window that pops up above the interface.
     minimumWidth: 150 * screenScaleFactor
     minimumHeight: 50 * screenScaleFactor
 
-    Label //Creates a bit of text.
+    Text //Creates a bit of text.
     {
         //This aligns the text to the top-left corner of the dialogue window.
         anchors.top: base.top //Reference the dialogue window by its ID: "base".
