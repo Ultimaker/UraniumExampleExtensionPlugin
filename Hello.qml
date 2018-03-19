@@ -3,6 +3,7 @@
 
 import UM 1.1 as UM //This allows you to use all of Uranium's built-in QML items.
 import QtQuick 2.2 //This allows you to use QtQuick's built-in QML items.
+import QtQuick.Controls 1.1  // This allows you to use QtQuick controls.
 
 UM.Dialog //Creates a modal window that pops up above the interface.
 {
@@ -13,7 +14,7 @@ UM.Dialog //Creates a modal window that pops up above the interface.
     minimumWidth: 150 * screenScaleFactor
     minimumHeight: 50 * screenScaleFactor
 
-    Text //Creates a bit of text.
+    Label //Creates a bit of text.
     {
         //This aligns the text to the top-left corner of the dialogue window.
         anchors.top: base.top //Reference the dialogue window by its ID: "base".
