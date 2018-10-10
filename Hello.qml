@@ -1,9 +1,9 @@
-//Copyright (c) 2017 Ultimaker B.V.
+//Copyright (c) 2018 Ultimaker B.V.
 //This example is released under the terms of the AGPLv3 or higher.
 
 import UM 1.1 as UM //This allows you to use all of Uranium's built-in QML items.
 import QtQuick 2.2 //This allows you to use QtQuick's built-in QML items.
-import QtQuick.Controls 1.1  // This allows you to use QtQuick controls.
+import QtQuick.Controls 1.1
 
 UM.Dialog //Creates a modal window that pops up above the interface.
 {
