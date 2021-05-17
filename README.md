@@ -14,10 +14,4 @@ This plug-in shows an example of both use cases.
 Packaging
 ---------
 
-To package your plug-in, use the packaging script in Uranium: https://github.com/Ultimaker/Uranium/blob/master/create_plugin.py
-
-Try the following command:
-
-    python3 /path/to/Uranium/create_plugin.py /path/to/UraniumExampleExtensionPlugin
-
-That should produce a .plugin file that can be added to any application based on Uranium.
+To package your plug-in, compress your plug-in folder in a .zip archive and rename that archive to get the `.plugin` extension. These .plugin files can be dropped into any Uranium application to be installed.
